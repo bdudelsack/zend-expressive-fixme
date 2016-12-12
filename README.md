@@ -8,6 +8,7 @@ Die Applikation stellt eine vereinfachte Form eines Gästebuches dar. Zur Speich
 
 - Composer (https://getcomposer.org)
 - Zend Expressive (https://zend-expressive.readthedocs.io)
+- Zend Servicemanager (https://zendframework.github.io/zend-servicemanager)
 - Zend DB (https://zendframework.github.io/zend-db)
 - Zend View (https://zendframework.github.io/zend-view)
 - Zend Form (https://zendframework.github.io/zend-form)
