@@ -36,7 +36,7 @@ class GuestbookService
         $res = $statement->execute();
 
         foreach ($res as $entry) {
-            $entries[] = new GuestbookEntry($entry['id'], $entry['content']);
+            $entries[] = new GuestbookEntry($entry['id'], $entry['content'], $entry['name'], $entry['email']);
         }
 
         return $entries;
@@ -44,7 +44,9 @@ class GuestbookService
 
     public function insert(GuestbookEntry $entry)
     {
-        $statement = $this->db->query('INSERT INTO guestbook(content) VALUES("' . $entry->getContent() . '")');
+        // TODO Prepared Statement gegen SQL Injections
+        // Ich mag prepared, weil es eine sehr injection sichere variante ist
+        $statement = $this->db->query('INSERT INTO guestbook(content, name, email) VALUES("' . $entry->getContent() . '","' . $entry->getName() . '","' . $entry->getEmail() . '")');
         $statement->execute();
     }
 }

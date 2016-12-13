@@ -18,9 +18,28 @@ class GuestbookForm extends Form implements InputProviderInterface
     {
         parent::__construct('guestbook-form');
 
+        // TODO make it an input
+        $this->add([
+            'type' => 'text',
+            'name' => 'name',
+            'options' => [
+                'label' => 'Please enter your name'
+            ]
+        ]);
+
+        // TODO make it an input
+        $this->add([
+            'type' => 'email',
+            'name' => 'email',
+            'options' => [
+                'label' => 'Please enter your email',
+            ]
+        ]);
+
         $this->add([
             'type' => 'textarea',
             'name' => 'content',
+            'required' => true,
             'options' => [
                 'label' => 'Please enter your text'
             ]
