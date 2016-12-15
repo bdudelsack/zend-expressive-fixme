@@ -44,7 +44,9 @@ class IndexAction
 
             if($this->guestbookForm->isValid()) {
                 $content = $this->guestbookForm->get('content')->getValue();
-                $entry = new GuestbookEntry(null, $content);
+                $name = $this->guestbookForm->get('name')->getValue();
+                $email = $this->guestbookForm->get('email')->getValue();
+                $entry = new GuestbookEntry(null, $content, $name, $email);
 
                 $this->guestbookService->insert($entry);
 

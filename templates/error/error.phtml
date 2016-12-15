@@ -10,4 +10,6 @@
     </p>
 <?php endif; ?>
 
-<?php var_dump($this->error) ?>
+<?php print_r($this->error->getMessage()) ?><br>
+<?php print_r($this->error->getFile()) ?><br>
+<?php print_r($this->error->getLine()) ?><br>

@@ -34,7 +34,7 @@ class InitCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $stmt = $this->db->query('CREATE TABLE IF NOT EXISTS guestbook (id INTEGER PRIMARY KEY AUTOINCREMENT, content VARCHAR)');
+        $stmt = $this->db->query('CREATE TABLE IF NOT EXISTS guestbook (id INTEGER PRIMARY KEY AUTOINCREMENT, content VARCHAR, name VARCHAR, email VARCHAR)');
         $stmt->execute();
     }
 }
