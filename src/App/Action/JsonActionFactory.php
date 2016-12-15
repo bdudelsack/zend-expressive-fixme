@@ -16,7 +16,7 @@ use Zend\ServiceManager\Exception\ServiceNotCreatedException;
 use Zend\ServiceManager\Exception\ServiceNotFoundException;
 use Zend\ServiceManager\Factory\FactoryInterface;
 
-class IndexActionFactory implements FactoryInterface
+class JsonActionFactory implements FactoryInterface
 {
 
     /**
@@ -33,10 +33,9 @@ class IndexActionFactory implements FactoryInterface
      */
     public function __invoke(ContainerInterface $container, $requestedName, array $options = null)
     {
-        return new IndexAction(
+        return new JsonAction(
             $container->get(\Zend\Expressive\Template\TemplateRendererInterface::class),
-            $container->get(GuestbookService::class),
-            $container->get(GuestbookForm::class)
+            $container->get(GuestbookService::class)
         );
     }
 }
