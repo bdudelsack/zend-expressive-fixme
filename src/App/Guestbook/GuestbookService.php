@@ -42,6 +42,27 @@ class GuestbookService
         return $entries;
     }
 
+    /**
+     * @return GuestbookEntry[]
+     */
+    public function fetchAllAsArray()
+    {
+        $entries = [];
+
+        $tmp = $this->fetchAll($unescaped_html);
+
+        foreach ($tmp as $entry) {
+            $entries[] = [
+              "id"        =>  $entry->getId(),
+              "content"   =>  $entry->getContent(),
+              "name"      =>  $entry->getName(),
+              "email"     =>  $entry->getEmail(),
+            ];
+        }
+
+        return $entries;
+    }
+
     public function insert(GuestbookEntry $entry)
     {
         // TODO Prepared Statement gegen SQL Injections
